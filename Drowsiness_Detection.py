@@ -23,9 +23,9 @@ def blinked(a,b,c,d,e,f):
 	down = compute(a,f)
 	ratio = up/(2.0*down)
 
-	if(ratio>0.31):
+	if(ratio>0.35):
 		return 2
-	elif(ratio>0.29 and ratio<=0.31):
+	elif(ratio>0.35 and ratio<=0.35):
 		return 1
 	else:
 		return 0

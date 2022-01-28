@@ -66,37 +66,37 @@ while True:
         
         #Now judge what to do for the eye blinks
         if(left_blink==0 or right_blink==0):
-        	sleep+=1
-        	drowsy=0
-        	active=0
-        	if(sleep>6):
-        		status="SLEEPING !!!"
-        		color = (255,0,0)
+            sleep+=1
+            drowsy=0
+            active=0
+            if(sleep>6):
+                status="SLEEPING !!!"
+                color = (255,0,0)
 
         elif(left_blink==1 or right_blink==1):
-        	sleep=0
-        	active=0
-        	drowsy+=1
-        	if(drowsy>6):
-        		status="Drowsy !"
-        		color = (0,0,255)
+            sleep=0
+            active=0
+            drowsy+=1
+            if(drowsy>6):
+                status="Drowsy !"
+                color = (0,0,255)
 
         else:
-        	drowsy=0
-        	sleep=0
-        	active+=1
-        	if(active>6):
-        		status="Active :)"
-        		color = (0,255,0)
+            drowsy=0
+            sleep=0
+            active+=1
+            if(active>6):
+                status="Active :)"
+                color = (0,255,0)
         	
         cv2.putText(frame, status, (100,100), cv2.FONT_HERSHEY_SIMPLEX, 1.2, color,3)
 
         for n in range(0, 68):
-        	(x,y) = landmarks[n]
-        	cv2.circle(face_frame, (x, y), 1, (255, 255, 255), -1)
+            (x,y) = landmarks[n]
+            cv2.circle(face_frame, (x, y), 1, (255, 255, 255), -1)
 
     cv2.imshow("Frame", frame)
     cv2.imshow("Result of detector", face_frame)
     key = cv2.waitKey(1)
     if key == 27:
-      	break
+        break
